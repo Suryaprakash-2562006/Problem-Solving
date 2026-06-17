@@ -3,13 +3,9 @@ class Solution {
 
         int count = 0;
 
-        int n = a;
+        int small = a<b ? a:b;
 
-        if(a > b){
-            n = b;
-        }
-
-        for(int i=1;i<=n;i++){
+        for(int i=1;i<=small;i++){
             if(a % i == 0 && b % i == 0){
                 count++;
             }
