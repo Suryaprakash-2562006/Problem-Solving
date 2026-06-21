@@ -1,20 +1,21 @@
-import java.util.HashMap;
+import java.util.*;
 
 class Solution {
-    int countPairs(int[] arr, int k) {
-
-        HashMap<Integer, Integer> map = new HashMap<>();
+    public int countPairs(int[] nums, int k) {
+        HashMap<Integer, Integer> hash = new HashMap<>();
         int count = 0;
 
-        for (int num : arr) {
+        for (int n : nums) {
 
-            count += map.getOrDefault(num - k, 0);
-
-            if (k != 0) {
-                count += map.getOrDefault(num + k, 0);
+            if (hash.containsKey(n - k)) {
+                count += hash.get(n - k);
             }
 
-            map.put(num, map.getOrDefault(num, 0) + 1);
+            if (hash.containsKey(n + k)) {
+                count += hash.get(n + k);
+            }
+
+            hash.put(n, hash.getOrDefault(n, 0) + 1);
         }
 
         return count;
