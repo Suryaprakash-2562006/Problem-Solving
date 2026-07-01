@@ -1,33 +1,23 @@
-class Solution {
+import java.util.HashMap;
 
+class Solution {
     static int majorityElement(int arr[]) {
 
-        int candidate = 0;
-        int count = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
 
-        // Find candidate
+        // Count frequency
         for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
 
-            if (count == 0) {
-                candidate = num;
-                count = 1;
-            } else if (candidate == num) {
-                count++;
-            } else {
-                count--;
+        // Find majority
+        for (int key : map.keySet()) {
+            if (map.get(key) > arr.length / 2) {
+                return key;
             }
         }
 
-        // Verify candidate
-        count = 0;
-
-        for (int num : arr) {
-            if (num == candidate) {
-                count++;
-            }
-        }
-
-        return count > arr.length / 2 ? candidate : -1;
+        return -1;
     }
 }
 
