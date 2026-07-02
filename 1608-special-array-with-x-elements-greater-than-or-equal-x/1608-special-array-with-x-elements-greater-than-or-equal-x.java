@@ -2,14 +2,14 @@ class Solution {
     public int specialArray(int[] nums) {
 
         
-        int len = nums.length;
+        int n = nums.length;
 
-        for(int i=0;i<=len;i++){
+        for(int i=0;i<=n;i++){
 
             int count = 0;
             
-            for(int n : nums){
-                if(n >= i) count++;
+            for(int x : nums){
+                if(x >= i) count++;
             }
 
             if(count == i) return count;
