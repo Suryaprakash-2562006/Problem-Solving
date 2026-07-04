@@ -8,17 +8,17 @@ class Solution {
     //    if(inc || dec) return true;
     //    return false;
 
-       boolean increasing = true;
-       boolean decreasing = true;
+       boolean inc = true;
+       boolean dec = true;
 
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] > nums[i - 1]) {
-                decreasing = false;
+                dec= false;
             } else if (nums[i] < nums[i - 1]) {
-                increasing = false;
+                inc = false;
             }
 
-            if (!increasing && !decreasing) {
+            if (!inc && !dec) {
                 return false;
             }
         }
