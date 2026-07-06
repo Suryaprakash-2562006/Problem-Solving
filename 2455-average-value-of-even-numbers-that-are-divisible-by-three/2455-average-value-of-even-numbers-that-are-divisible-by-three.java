@@ -9,8 +9,7 @@ class Solution {
                 count++;
             }
         }
-        if(sum != 0) return sum / count;
-        else return sum;
+        return count == 0 ? 0 : sum / count;
     }
 }
 
