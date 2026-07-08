@@ -6,9 +6,9 @@ class Solution {
             int sum=0;
             int st=Math.max(0, i-nums[i]);
             for(int j=st;j<=i;j++){
-                sum+=nums[j];
+                res+=nums[j];
             }
-            res+=sum;
+            
         }
         return res;
     }
