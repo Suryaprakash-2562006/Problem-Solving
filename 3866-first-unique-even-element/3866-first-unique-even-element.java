@@ -1,21 +1,19 @@
 class Solution {
     public int firstUniqueEven(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
 
-        int max = 0;
+                boolean unique = true;
+                for (int j = 0; j < nums.length; j++) {
 
-        for(int i = 0; i < nums.length; i++){
-            max = Math.max(max, nums[i]);
-        }
-
-        int[] freq = new int[max + 1];
-
-        for(int i = 0; i < nums.length; i++){
-            freq[nums[i]]++;
-        }
-
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] % 2 == 0 && freq[nums[i]] == 1){
-                return nums[i];
+                    if (i != j && nums[i] == nums[j]) {
+                        unique = false;
+                        break;
+                    }
+                }
+                if (unique) {
+                    return nums[i];
+                }
             }
         }
 
