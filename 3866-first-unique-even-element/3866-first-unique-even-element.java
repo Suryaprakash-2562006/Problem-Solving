@@ -1,20 +1,20 @@
 class Solution {
     public int firstUniqueEven(int[] nums) {
 
-        for (int i = 0; i < nums.length; i++) {
+        int max = 0;
 
-            if (nums[i] % 2 != 0)
-                continue;
+        for(int i = 0; i < nums.length; i++){
+            max = Math.max(max, nums[i]);
+        }
 
-            int count = 0;
+        int[] freq = new int[max + 1];
 
-            for (int j = 0; j < nums.length; j++) {
-                if (nums[i] == nums[j]) {
-                    count++;
-                }
-            }
+        for(int i = 0; i < nums.length; i++){
+            freq[nums[i]]++;
+        }
 
-            if (count == 1) {
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] % 2 == 0 && freq[nums[i]] == 1){
                 return nums[i];
             }
         }
