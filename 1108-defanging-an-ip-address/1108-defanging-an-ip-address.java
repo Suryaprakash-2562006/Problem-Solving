@@ -1,16 +1,18 @@
 class Solution {
     public String defangIPaddr(String address) {
 
-        String str = "";
+        // String str = "";
 
-        for(int i=0;i<address.length();i++){
-            if(address.charAt(i) == 46){
-                str = str + "[.]";
-            }
-            else str = str + address.charAt(i);
-        }
+        // for(int i=0;i<address.length();i++){
+        //     if(address.charAt(i) == 46){
+        //         str = str + "[.]";
+        //     }
+        //     else str = str + address.charAt(i);
+        // }
 
-        return str;
+        // return str;
+
+        return address.replace(".","[.]");
         
     }
 }
