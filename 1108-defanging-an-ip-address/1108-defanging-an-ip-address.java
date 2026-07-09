@@ -12,7 +12,20 @@ class Solution {
 
         // return str;
 
-        return address.replace(".","[.]");
+        //return address.replace(".","[.]");
+
+
+        StringBuilder sb = new StringBuilder();
+
+for (int i = 0; i < address.length(); i++) {
+    if (address.charAt(i) == '.') {
+        sb.append("[.]");
+    } else {
+        sb.append(address.charAt(i));
+    }
+}
+
+return sb.toString();
         
     }
 }
