@@ -13,13 +13,11 @@ class Solution {
                 set.add(nums[i]);
             }
         }
-
         for(int x : set){
             if(x != 0){
                 count++;
             }
         }
-
         return count;
         
     }
