@@ -1,21 +1,19 @@
 class Solution {
     public int maxProduct(int n) {
-        int max = Integer.MIN_VALUE;
-        String str = "";
 
-        while(n > 0){
-            int ld = n % 10;
-            str = ld + str;
+        int max1 = -1;
+        int max2 = -1;
+        while (n > 0) {
+            int digit = n % 10;
+            if (digit > max1) {
+                max2 = max1;
+                max1 = digit;
+            } else if (digit > max2) {
+                max2 = digit;
+            }
             n /= 10;
         }
-
-        for(int i=0;i<str.length();i++){
-            for(int j=i+1;j<str.length();j++){
-                int prod = (str.charAt(i) - '0') * (str.charAt(j) - '0');
-                if(prod > max) max = prod;
-            }
-        }
-        return max;
+        return max1 * max2;
     }
 }
 
