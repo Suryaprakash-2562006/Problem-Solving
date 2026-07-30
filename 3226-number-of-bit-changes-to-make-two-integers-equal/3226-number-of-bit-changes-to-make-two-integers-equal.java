@@ -1,12 +1,7 @@
 class Solution {
-    public int minChanges(int n, int k) {
-
-        if ((n & k) != k) {
-            return -1;
-        }
-
-        return Integer.bitCount(n ^ k);
-    }
+  public int minChanges(int n, int k) {
+    return (n & k) == k ? Integer.bitCount(n ^ k) : -1;
+  }
 }
 
 // Synced seamlessly with LeetHub Pro
