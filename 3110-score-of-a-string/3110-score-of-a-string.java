@@ -7,7 +7,9 @@ class Solution {
         {
             int n1 = (int)s.charAt(i);
             int n2 = (int)s.charAt(j);
-            add+= Math.abs(n1-n2);
+            int ans = (n1-n2);
+            if(ans<0)ans*=-1;
+            add+=ans;
             i++;
             j++;
         }
