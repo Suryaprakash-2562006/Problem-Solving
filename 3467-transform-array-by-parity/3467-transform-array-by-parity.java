@@ -1,15 +1,25 @@
 class Solution {
     public int[] transformArray(int[] nums) {
+        // for(int i=0;i<nums.length;i++){
+        //     if(nums[i]%2==0)nums[i]=0;
+        //     else nums[i]=1;
+        // }
+        // Arrays.sort(nums);
+        // return nums;
 
-        for(int i=0;i<nums.length;i++){
-            if(nums[i]%2==0)nums[i]=0;
-            else nums[i]=1;
+        int even = 0;
+
+        for(int n : nums){
+            if(n%2==0)even++;
         }
 
-        Arrays.sort(nums);
-
+        for(int i=0;i<even;i++){
+            nums[i]=0;
+        }
+        for(int i=even;i<nums.length;i++){
+            nums[i]=1;
+        }
         return nums;
-        
     }
 }
 
