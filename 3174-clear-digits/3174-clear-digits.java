@@ -1,21 +1,14 @@
 class Solution {
     public String clearDigits(String s) {
+        
 
-        StringBuilder str = new StringBuilder();
-
-        for (int i = 0; i < s.length(); i++) {
-
+        StringBuilder st = new StringBuilder();
+        for(int i=0;i<s.length();i++){
             char ch = s.charAt(i);
-
-            if (ch >= '0' && ch <= '9') {
-                str.deleteCharAt(str.length() - 1);
-            } 
-            else {
-                str.append(ch);
-            }
+            if(ch >='0' && ch<='9') st.deleteCharAt(st.length()-1);
+            else st.append(ch);
         }
-
-        return str.toString();
+        return st.toString();
     }
 }
 
