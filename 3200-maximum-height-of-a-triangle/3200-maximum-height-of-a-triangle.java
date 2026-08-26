@@ -1,34 +1,24 @@
 class Solution {
     public int maxHeightOfTriangle(int red, int blue) {
-        int max = Math.max(red, blue);
-        int min = Math.min(red, blue);
-        int h1 = 0;
-        int h2 = 0;
-        int a = max;
-        int b = min;
-        for (int i = 1; ; i++) {
-            if (i % 2 != 0) {
-                if (a < i) break;
-                a -= i;
-            } else {
-                if (b < i) break;
-                b -= i;
+        for (int h = 100; h >= 1; h--) {
+
+            int oddSum = 0;
+            int evenSum = 0;
+
+            for (int i = 1; i <= h; i++) {
+                if (i % 2 == 1)
+                    oddSum += i;
+                else
+                    evenSum += i;
             }
-            h1++;
-        }
-        a = max;
-        b = min;
-        for (int i = 1; ; i++) {
-            if (i % 2 != 0) {
-                if (b < i) break;
-                b -= i;
-            } else {
-                if (a < i) break;
-                a -= i;
+
+            if ((red >= oddSum && blue >= evenSum) ||
+                (red >= evenSum && blue >= oddSum)) {
+                return h;
             }
-            h2++;
         }
-        return Math.max(h1, h2);
+
+        return 0;
     }
 }
 
